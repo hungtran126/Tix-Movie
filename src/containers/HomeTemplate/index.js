@@ -13,7 +13,7 @@ function LayoutHome(props) {
     );
 }
 
-export default function HomeTemplate({Component, ...props}) {
+export default function HomeTemplate({ Component, ...props }) {
     // const { exact, path, Component } = props;
     return (
         <Route

@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import useStyle from '../../../components/Style';
 import { actDetailMovieApi } from './modules/action';
+import star from '../../../img/star1.png';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import Schedule from './Schedule';
 
 function DetailPage(props) {
 
@@ -51,13 +53,13 @@ function DetailPage(props) {
                                     <div>
                                         <span style={{
                                             color: "#e9e9e9",
-                                            fontSize: "14pt",
+                                            fontSize: "12pt",
                                         }}>100 phút - 0 IMDb - 2D/Digital</span>
                                         <br />
                                     </div>
                                     <button className={classes.detail_btnBuyTicketDetail}>Mua vé</button>
                                 </div>
-                                <div className="col-sm-2">
+                                <div className="col-sm-2 mt-0">
                                     <CircularProgressbar
                                         strokeWidth={12}
                                         value={detail.danhGia}
@@ -69,6 +71,19 @@ function DetailPage(props) {
                                             textSize: "20pt",
                                         })}
                                     />
+                                    <div className="rating-star mt-2">
+                                        <img src={star} />
+                                        <img src={star} />
+                                        <img src={star} />
+                                        <img src={star} />
+                                        <img src={star} />
+                                    </div>
+                                    <div style={{
+                                        color: "#e9e9e9",
+                                        fontSize: "10 pt",
+                                    }} className="mt-2">
+                                        33 người đánh giá
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -79,9 +94,12 @@ function DetailPage(props) {
     }
 
     return (
-        <div className="position-relative" style={{ marginTop: "60px" }}>
-            {renderPoster()}
-        </div>
+        <React.Fragment>
+            <div className="position-relative" style={{ marginTop: "60px" }}>
+                {renderPoster()}
+            </div>
+            <Schedule />
+        </React.Fragment>
     );
 }
 
@@ -89,6 +107,7 @@ const mapStateToProps = (state) => {
     return {
         loading: state.detailMovieReducer.loading,
         data: state.detailMovieReducer.data,
+
     }
 }
 

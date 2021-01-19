@@ -1,3 +1,4 @@
+import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import background from '../../img/bglogin.jpg';
 
@@ -121,6 +122,35 @@ const useStyle = makeStyles(theme => ({
         border: "none",
         color: "#fff"
     },
+    styleDatePicker: {
+        overflowX: 'scroll',
+        width: '1700px',
+        float: 'left',
+        position: 'relative',
+        height: '100px',
+        display: 'flex',
+        marginLeft: '0px'
+    },
+    styleDay: {
+        fontSize: '18px',
+        margin: '0 10px',
+        width: '80px',
+    },
+    styleDate: {
+        font: '18px',
+        textAlign: 'center',
+    },
+    buttonDatePickerStyle: {
+        border: 'none',
+        backgroundColor: 'white',
+        outline: 'none',
+        '&:focus': {
+            border: 'none',
+        }
+    },
+    buttonDisabled: {
+        color: 'grey',
+    }
 }));
 
 export default useStyle;
