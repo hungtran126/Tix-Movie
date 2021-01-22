@@ -4,6 +4,7 @@ import { actListVincomApi } from '../BookingBar/modules/action';
 import { actBranchDetailApi, actListBranchApi } from './modules/action';
 import vincom from '../../../../img/bhd-star-vincom-thao-dien-15379553942188.jpg';
 import Loading from '../../../../components/Loading';
+import useStyle from '../../../../components/Style';
 
 function Branch(props) {
 

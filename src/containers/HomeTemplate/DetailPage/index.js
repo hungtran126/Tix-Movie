@@ -98,7 +98,9 @@ function DetailPage(props) {
             <div className="position-relative" style={{ marginTop: "60px" }}>
                 {renderPoster()}
             </div>
-            <Schedule />
+            <div style={{ backgroundColor: '#0A2029' }}>
+                <Schedule />
+            </div>
         </React.Fragment>
     );
 }

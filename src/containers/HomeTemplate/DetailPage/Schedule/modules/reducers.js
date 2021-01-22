@@ -1,26 +1,27 @@
 import * as ActionType from "./constants";
 
 let inititalState = {
-    loading: null,
-    data: [],
+    loading1: null,
+    data1: [],
     err: null
 }
 
 const scheduleDetailReducer = (state = inititalState, action) => {
+    // console.log(action.payload);
     switch (action.type) {
         case ActionType.SCHEDULE_DETAIL_REQUEST:
-            state.loading = true;
-            state.data = false;
-            state.err = false;
+            state.loading1 = true;
+            state.data1 = null;
+            state.err = null;
             return { ...state };
         case ActionType.SCHEDULE_DETAIL_SUCCESS:
-            state.loading = false;
-            state.data = action.payload;
-            state.err = false;
+            state.loading1 = false;
+            state.data1 = action.payload;
+            state.err = null;
             return { ...state };
         case ActionType.SCHEDULE_DETAIL_FAILED:
-            state.loading = false;
-            state.data = false;
+            state.loading1 = false;
+            state.data1 = null;
             state.err = action.payload;
             return { ...state };
         default:

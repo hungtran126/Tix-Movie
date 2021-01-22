@@ -5,13 +5,12 @@ import { actListVincomApi } from '../../HomePage/BookingBar/modules/action';
 import vincom from '../../../../img/bhd-star-vincom-thao-dien-15379553942188.jpg';
 import useStyle from '../../../../components/Style/index';
 import styled from 'styled-components';
-import { Link } from '@material-ui/core';
 
 function Schedule(props) {
     const classes = useStyle();
     useEffect(() => {
         props.fetchScheduleBranch();
-        // props.fetchBranchDetail('BHD');
+        props.fetchBranchDetail('BHDStar');
     }, []);
 
     const renderBranch = () => {
@@ -26,10 +25,11 @@ function Schedule(props) {
                             href={"#" + list.maHeThongRap}
                             role="tab" aria-controls={list.maHeThongRap} aria-selected="true"
                             onClick={() => renderDetailMovie(list.maHeThongRap)}
+                            style={{ width: '323px', height: '126px' }}
                         >
                             <div className="row">
                                 <div className="col-md-4">
-                                    <div style={{ width: '75px' }}>
+                                    <div style={{ width: '75px', marginLeft: '30%' }}>
                                         <img src={list.logo} />
                                     </div>
                                 </div>
@@ -47,75 +47,42 @@ function Schedule(props) {
             });
         }
     }
-
-    // const renderDetailBranch = (MaRap) => {
-    //     if (MaRap) return props.getBranchDetail(MaRap);
-
-    //     if (props.data1 && props.data1.length > 0) {
-    //         return (
-    //             <div className="tab-pane fade show active" id={MaRap} role="tabpanel" aria-labelledby="bhd-tab">
-    //                 {props.data1.map((detail, index) => {
-    //                     return detail.lstCumRap.map((list, index1) => {
-    //                         return (
-    //                             <li
-    //                                 className="d-flex active"
-    //                                 key={index1}
-    //                                 role="presentation"
-    //                             >
-    //                                 <img src={vincom} />
-    //                                 <div>
-    //                                     {/* <strong><span>{detail.tenCumRap}</span> - Vincom Thảo Điền</strong> */}
-    //                                     <strong>{list.tenCumRap}</strong>
-    //                                     <p>{list.diaChi}</p>
-    //                                     <a
-    //                                         href={"#" + list.maCumRap}
-    //                                         data-toggle="tab"
-    //                                         role="tab"
-    //                                         aria-controls={list.maCumRap} aria-selected="true"
-    //                                         onClick={() => renderDetailMovie(list.maCumRap)}
-    //                                     >
-    //                                         [chi tiết]
-    //                                     </a>
-    //                                 </div>
-    //                             </li>
-    //                         );
-    //                     })
-    //                 })}
-    //             </div>
-    //         );
-    //     }
-    // }
-
-    // const renderDetailMovie = (maCumRap) => {
-    //     return (
-    //         <div className="tab-pane fade show active" id={maCumRap} role="tabpanel">
-    //             {props.data1.map((detail, index) => {
-    //                 return detail.lstCumRap.map((list, index1) => {
-    //                     return list.danhSachPhim.map((movie, index2) => {
-    //                         return (
-    //                             <div className="col-right" key={index2}>
-    //                                 <div className="d-flex active pt-0">
-    //                                     <img src={movie.hinhAnh} />
-    //                                     <div>
-    //                                         <strong><span className="badge badge-success">P</span> {movie.tenPhim}</strong>
-    //                                         <p>109 phút - TIX 9.4 - IMDb 8.7</p>
-    //                                     </div>
-    //                                 </div><br />
-    //                                 <h5>2D Digital</h5>
-    //                                 <Link className="btn btn-light d-flex align-items-center"><h6>20:30 </h6> ~ 22:19</Link>
-    //                             </div>
-    //                         );
-    //                     });
-    //                 })
-    //             })}
-    //         </div>
-    //     );
-    // }
-
     const renderDetailMovie = (maRap) => {
-        // console.log(maRap);
         if (maRap) return props.fetchBranchDetail(maRap);
-        console.log(props.data1);
+        if (props.data1 && props.data1.length > 0) {
+            return (
+                <div className="tab-pane fade show active" id={maRap} role="tabpanel" style={{ backgroundColor: 'white', width: '600px', height: '100%' }}>
+                    {props.data1.map((detail, index) => {
+                        return detail.lstCumRap.map((list, index1) => {
+                            return (
+                                <div className="col-right" key={index1}>
+                                    <div className="d-flex active mt-4 pt-0">
+                                        <img src={vincom} />
+                                        <div>
+                                            <strong>{detail.tenCumRap}</strong>
+                                            <strong>{list.tenCumRap}</strong>
+                                            <span style={{ display: 'flex' }}>
+                                                <p>{list.diaChi}</p>
+                                                <a
+                                                    href={"#" + list.maCumRap}
+                                                    data-toggle="tab"
+                                                    role="tab"
+                                                    aria-controls={list.maCumRap} aria-selected="true"
+                                                >
+                                                    [Bản đồ]
+                                                </a>
+                                            </span>
+                                            <h5>2D Digital</h5>
+                                            <button className={`btn d-flex align-items-center + ${classes.buttonTicket}`}><h6 style={{ marginLeft: '15px' }}>20:30</h6>~22:19</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })
+                    })}
+                </div>
+            );
+        }
     }
 
     const Button = styled.button`
@@ -131,10 +98,16 @@ function Schedule(props) {
         }
     `;
 
+    const renderMovieSchedule = () => {
+        window.location.reload();
+    }
+
     const renderNgayThang = () => {
         return (
             <div className={classes.styleDatePicker}>
-                <Button>
+                <Button
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={classes.styleDay}>
                         Chủ Nhật
                     </div>
@@ -142,7 +115,9 @@ function Schedule(props) {
                         17
                     </div>
                 </Button>
-                <Button>
+                <Button
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={classes.styleDay}>
                         Thứ 2
                     </div>
@@ -150,7 +125,9 @@ function Schedule(props) {
                         18
                     </div>
                 </Button>
-                <Button>
+                <Button
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={classes.styleDay}>
                         Thứ 3
                     </div>
@@ -158,7 +135,9 @@ function Schedule(props) {
                         19
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 4
                     </div>
@@ -166,7 +145,9 @@ function Schedule(props) {
                         20
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 5
                     </div>
@@ -174,7 +155,9 @@ function Schedule(props) {
                         21
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 6
                     </div>
@@ -182,7 +165,9 @@ function Schedule(props) {
                         22
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 7
                     </div>
@@ -190,7 +175,9 @@ function Schedule(props) {
                         23
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 7
                     </div>
@@ -198,7 +185,9 @@ function Schedule(props) {
                         23
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Chủ nhật
                     </div>
@@ -206,7 +195,9 @@ function Schedule(props) {
                         24
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 2
                     </div>
@@ -214,7 +205,9 @@ function Schedule(props) {
                         25
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 3
                     </div>
@@ -222,7 +215,9 @@ function Schedule(props) {
                         26
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 4
                     </div>
@@ -230,7 +225,9 @@ function Schedule(props) {
                         27
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 5
                     </div>
@@ -238,7 +235,9 @@ function Schedule(props) {
                         28
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 6
                     </div>
@@ -246,7 +245,9 @@ function Schedule(props) {
                         29
                     </div>
                 </Button>
-                <Button disabled>
+                <Button disabled
+                    onClick={() => renderMovieSchedule()}
+                >
                     <div className={`${classes.styleDay} ${classes.buttonDisabled}`}>
                         Thứ 7
                     </div>
@@ -260,27 +261,60 @@ function Schedule(props) {
 
     return (
         <section className="address" id="address">
-            <div className="row">
-                <div className="col-md-4">
-                    <ul className="nav nav-tabs d-flex flex-wrap col-md-4" id="myTab" role="tablist">
-                        {renderBranch()}
-                    </ul>
-                </div>
-                <div className="col-md-8 overflow-auto">
-                    <ul className="nav nav-tabs d-flex flex-wrap col-md-12" id="myTabContent" role="tablist">
-                        {/* {renderDetailBranch()} */}
-                        {renderNgayThang()}
-                        {/* {renderDetailBranch()}
-                        {renderDetailMovie()} */}
-                    </ul>
+            <div>
+                <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist" style={{ marginLeft: '40%' }}>
+                    <li className={`nav-item ${classes.tabs}`}>
+                        <a className={`nav-link active ${classes.info}`} id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Lịch Chiếu</a>
+                    </li>
+                    <li className={`nav-item ${classes.tabs}`}>
+                        <a className={`nav-link ${classes.info}`} id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Thông Tin</a>
+                    </li>
+                </ul>
+                <div className="tab-content" id="pills-tabContent">
+                    <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div className="row mt-5">
+                            <div className="col-md-4">
+                                <ul className="nav nav-tabs d-flex flex-wrap col-md-4" id="myTab" role="tablist">
+                                    {renderBranch()}
+                                </ul>
+                            </div>
+                            <div className="col-md-8 overflow-auto" >
+                                <ul className="nav nav-tabs d-flex flex-wrap col-md-12" id="myTabContent" role="tablist">
+                                    {renderNgayThang()}
+                                    <div className="overflow-auto">
+                                        <div>
+                                            {renderDetailMovie()}
+                                        </div>
+                                    </div>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div className="row" style={{ color: 'white', fontSize: '25px' }}>
+                            <div className="col-md-4">
+                                <p>Ngày công chiếu: xxxxxxxx</p>
+                                <p>Đạo diễn:        xxxxxxxx</p>
+                                <p>Diễn viên:       xxxxxxxx</p>
+                                <p>Thể loại:        xxxxxxxx</p>
+                                <p>Định dạng:       2D/Digital</p>
+                                <p>Quốc gia SX:     xxxxxxxx</p>
+                            </div>
+                            <div className="col-md-8">
+                                <p>Nội dung: </p>
+                                <p>xxxxxxxxxxxxxxxxxxxxxxx</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </section>
     )
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.scheduleDetailReducer.data);
     return {
         loading1: state.scheduleDetailReducer.loading1,
         data1: state.scheduleDetailReducer.data1,

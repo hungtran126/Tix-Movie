@@ -25,12 +25,12 @@ export const actScheduleDetailApi = (maRap) => {
     return dispatch => {
         dispatch(actScheduleDetailRequest);
         api.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=GP01`)
-        .then(res => {
-            // console.log("res", res.data);
-            dispatch(actScheduleDetailSuccess(res.data));
-        }).catch(err => {
-            dispatch(actScheduleDetailFailed(err));
-        });
+            .then(res => {
+                // console.log("res", res.data);
+                dispatch(actScheduleDetailSuccess(res.data));
+            }).catch(err => {
+                dispatch(actScheduleDetailFailed(err));
+            });
 
     }
 }
