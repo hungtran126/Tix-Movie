@@ -4,7 +4,7 @@ import { actListVincomApi } from '../BookingBar/modules/action';
 import { actBranchDetailApi, actListBranchApi } from './modules/action';
 import vincom from '../../../../img/bhd-star-vincom-thao-dien-15379553942188.jpg';
 import Loading from '../../../../components/Loading';
-import { Link } from 'react-router-dom';
+import useStyle from '../../../../components/Style';
 
 function Branch(props) {
 
@@ -71,11 +71,13 @@ function Branch(props) {
         }
     }
 
-    const renderDetailMovie = (maCumRaap) => {
+    const renderDetailMovie = (maCumRap) => {
+        // if (maCumRap) {
         return (
-            <div className="tab-pane fade show active" id={maCumRaap} role="tabpanel">
-                {props.data1.map((detail) => {
-                    return detail.lstCumRap.map((list) => {
+            <div className="tab-pane fade show active" id={maCumRap} role="tabpanel">
+                {props.data1.map((detail, index) => {
+                    return detail.lstCumRap.map((list, index1) => {
+                        // if (list.maCumRap === maCumRap) {
                         return list.danhSachPhim.map((movie, index2) => {
                             // console.log("movie", movie);
                             return (
@@ -88,20 +90,16 @@ function Branch(props) {
                                         </div>
                                     </div><br />
                                     <h5>2D Digital</h5>
-                                    <Link 
-                                        className="btn btn-light d-flex align-items-center"
-                                        style={{ width: '110px' }}
-                                        to="#"
-                                    >
-                                        <h6>20:30 </h6> ~ 22:19
-                                    </Link>
+                                    <button className="btn btn-light d-flex align-items-center"><h6>20:30 </h6> ~ 22:19</button>
                                 </div>
                             );
                         });
+                        // }
                     })
                 })}
             </div>
         );
+        // }
     }
 
     return (

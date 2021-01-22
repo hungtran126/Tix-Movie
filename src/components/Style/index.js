@@ -1,3 +1,4 @@
+import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import background from '../../img/bglogin.jpg';
 
@@ -125,6 +126,62 @@ const useStyle = makeStyles(theme => ({
         border: "none",
         color: "#fff"
     },
+    styleDatePicker: {
+        overflowX: 'scroll',
+        width: '2000px',
+        float: 'left',
+        position: 'relative',
+        height: '100px',
+        display: 'flex',
+        marginLeft: '0px'
+    },
+    styleDay: {
+        fontSize: '18px',
+        margin: '0 10px',
+        width: '80px',
+    },
+    styleDate: {
+        font: '18px',
+        textAlign: 'center',
+    },
+    buttonDatePickerStyle: {
+        border: 'none',
+        backgroundColor: 'white',
+        outline: 'none',
+        '&:focus': {
+            border: 'none',
+        }
+    },
+    buttonDisabled: {
+        color: 'grey',
+    },
+    buttonTicket: {
+        width: '125px',
+        height: '50px',
+        border: '2px solid lightGrey',
+        borderRadius: '5px 5px',
+        '&:focus': {
+            outline: 'none',
+            boxShadow: 'none',
+        },
+        '&:hover': {
+            color: 'grey',
+        }
+    },
+    tabs: {
+        fontSize: '25px',
+    },
+    info: {
+        color: 'white',
+        '&:focus': {
+            backgroundColor: 'none',
+            color: '#fb4226',
+        },
+        '&:hover': {
+            color: '#fb4226',
+        }
+    },
+    
 }));
 
 export default useStyle;
