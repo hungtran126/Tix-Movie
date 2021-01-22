@@ -27,7 +27,7 @@ const useStyle = makeStyles(theme => ({
         border: 0,
         width: "80%",
         cursor: "pointer",
-        marginBottom: "96px",
+        marginBottom: "66px",
     },
     signin_close: {
         position: "absolute",
@@ -43,6 +43,10 @@ const useStyle = makeStyles(theme => ({
         paddingTop: "9px",
         color: "#7d7d7d",
         textDecoration: "none",
+    },
+    signin_input: {
+        backgroundColor: "white",
+        opacity: "0.9",
     },
     btnIMG: {
         width: "100%"

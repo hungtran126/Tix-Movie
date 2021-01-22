@@ -4,6 +4,7 @@ import { actListVincomApi } from '../BookingBar/modules/action';
 import { actBranchDetailApi, actListBranchApi } from './modules/action';
 import vincom from '../../../../img/bhd-star-vincom-thao-dien-15379553942188.jpg';
 import Loading from '../../../../components/Loading';
+import { Link } from 'react-router-dom';
 
 function Branch(props) {
 
@@ -70,35 +71,37 @@ function Branch(props) {
         }
     }
 
-    const renderDetailMovie = (maCumRap) => {
-        if (maCumRap) {
-            return (
-                <div className="tab-pane fade show active" id={maCumRap} role="tabpanel">
-                    {props.data1.map((detail, index) => {
-                        return detail.lstCumRap.map((list, index1) => {
-                            if (list.maCumRap === maCumRap) {
-                                return list.danhSachPhim.map((movie, index2) => {
-                                    console.log("movie", movie);
-                                    return (
-                                        <div className="col-right" key={index2}>
-                                            <div className="d-flex active pt-0">
-                                                <img src={movie.hinhAnh} />
-                                                <div>
-                                                    <strong><span className="badge badge-success">P</span> {movie.tenPhim}</strong>
-                                                    <p>109 phút - TIX 9.4 - IMDb 8.7</p>
-                                                </div>
-                                            </div><br />
-                                            <h5>2D Digital</h5>
-                                            <button className="btn btn-light d-flex align-items-center"><h6>20:30 </h6> ~ 22:19</button>
+    const renderDetailMovie = (maCumRaap) => {
+        return (
+            <div className="tab-pane fade show active" id={maCumRaap} role="tabpanel">
+                {props.data1.map((detail) => {
+                    return detail.lstCumRap.map((list) => {
+                        return list.danhSachPhim.map((movie, index2) => {
+                            // console.log("movie", movie);
+                            return (
+                                <div className="col-right" key={index2}>
+                                    <div className="d-flex active pt-0">
+                                        <img src={movie.hinhAnh} />
+                                        <div>
+                                            <strong><span className="badge badge-success">P</span> {movie.tenPhim}</strong>
+                                            <p>109 phút - TIX 9.4 - IMDb 8.7</p>
                                         </div>
-                                    );
-                                });
-                            }
-                        })
-                    })}
-                </div>
-            );
-        }
+                                    </div><br />
+                                    <h5>2D Digital</h5>
+                                    <Link 
+                                        className="btn btn-light d-flex align-items-center"
+                                        style={{ width: '110px' }}
+                                        to="#"
+                                    >
+                                        <h6>20:30 </h6> ~ 22:19
+                                    </Link>
+                                </div>
+                            );
+                        });
+                    })
+                })}
+            </div>
+        );
     }
 
     return (
@@ -110,7 +113,7 @@ function Branch(props) {
                     </ul>
                 </div>
                 <div className="col-md-5 overflow-auto">
-                    <ul className="tab-content d-flex flex-wrap" id="myTabContent">
+                    <ul className="tab-content d-flex flex-wrap" id="myTabContent" role="tablist">
                         {renderDetailBranch()}
                     </ul>
                 </div>

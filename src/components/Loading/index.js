@@ -1,9 +1,8 @@
 import React from 'react';
-import './loading.css';
 
 export default function Loading() {
     return (
-        <React.Fragment>
+        <div id="loading">
             <div className="about">
                 <a className="bg_links social portfolio" href="https://www.rafaelalucas.com" target="_blank">
                     <span className="icon" />
@@ -23,6 +22,6 @@ export default function Loading() {
                     <span />
                 </div>
             </div>
-        </React.Fragment>
+        </div>
     );
 }

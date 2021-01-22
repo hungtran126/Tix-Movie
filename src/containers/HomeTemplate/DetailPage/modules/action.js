@@ -4,7 +4,7 @@ import * as ActionType from './constants';
 export const actDetailMovieApi = (tenPhim) => {
     return dispatch => {
         dispatch(actDetailMovieRequest);
-        api.get(`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=${tenPhim}`).then(res => {
+        api.get(`/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=${tenPhim}`).then(res => {
             // console.log("detailMovie", res.data);
             dispatch(actDetailMovieSuccess(res.data));
         }).catch(err => {
