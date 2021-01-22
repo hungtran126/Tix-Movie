@@ -31,26 +31,14 @@ const showLayoutAdmin = (routes) => {
   }
 }
 
-const checkAuth = (routes) => {
-  if(localStorage.getItem("user")) {
-    let user = JSON.parse(localStorage.getItem("user"));
-    if(user.maLoaiNguoiDung === "QuanTri") {
-      return showLayoutAdmin(routes);
-    } else {
-      return <Route path="/admin/login" component={LoginPage} />;
-    }
-  } else {
-    return <Route path="/admin/login" component={LoginPage} />;
-  }
-}
-
 class App extends Component {
   
   render(){
     return (
       <Switch>
         {showLayoutHome(routesHome)}
-        {checkAuth(routesAdmin)}
+        {showLayoutAdmin(routesAdmin)}
+        <Route path="/admin/login" component={LoginPage} />
         <Route path="/login" component={Login} />
         <Route path="" component={PageNotFound} />
       </Switch>

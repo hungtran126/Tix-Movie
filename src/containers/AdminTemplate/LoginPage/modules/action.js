@@ -1,12 +1,13 @@
 import api from '../../../../api/index';
 import setHeaders from 'ultils/setHeaders';
 import * as ActionType from './constants';
+import { message } from 'antd';
 
 export const actLoginAdminApi = (form, history) => {
     return dispatch => {
-        dispatch(actLoginAdminRequest);
+        dispatch(actLoginAdminRequest());
         api.post(`/QuanLyNguoiDung/DangNhap`, form).then(res => {
-            // console.log("Login", res.data);
+            // console.log("Login", res);
             dispatch(actLoginAdminSuccess(res.data));
             if (res.data.maLoaiNguoiDung === "QuanTri") {
                 //setHeader Token
@@ -22,9 +23,7 @@ export const actLoginAdminApi = (form, history) => {
                 const expTimeout = exp - date;
                 dispatch(setTimeoutLogout(history, expTimeout));
             } else {
-                return Promise.reject({
-                    response: { data: "Bạn không có quyền truy cập" },
-                });
+                message.error("Bạn không có quyền truy cập vào trang admin", 2);
             }
         }).catch(err => {
             dispatch(actLoginAdminFailed(err));

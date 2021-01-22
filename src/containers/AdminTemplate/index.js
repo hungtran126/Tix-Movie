@@ -25,7 +25,7 @@ function AdminTemplate({ Component, ...props }) {
         <Route
             {...props}
             render={(propsComponent) => {
-                if (JSON.parse(localStorage.getItem("user")).maLoaiNguoiDung === "QuanTri") {
+                if (localStorage.getItem("user") && JSON.parse(localStorage.getItem("user")).maLoaiNguoiDung == "QuanTri") {
                     return (
                         <LayoutAdmin>
                             <Component {...propsComponent} Title={props.Title} />
