@@ -94,7 +94,7 @@ function LoginPage(props) {
                             </label>
                         </div>
                         <div className="text-center">
-                            <button type="submit" className="btn btn-primary my-4" disabled={isSubmitting}>Đăng nhập</button>
+                            <button type="submit" className="btn btn-primary my-4">Đăng nhập</button>
                         </div>
                     </form>
                 )}

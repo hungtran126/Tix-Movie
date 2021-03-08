@@ -5,7 +5,6 @@ import ManagePage from "containers/AdminTemplate/ManagePage";
 import MoviePage from "containers/AdminTemplate/MoviePage";
 import HistoryPage from "containers/AdminTemplate/HistoryPage";
 import TopBookPage from "containers/AdminTemplate/TopBookPage";
-import LoginPage from "containers/AdminTemplate/LoginPage";
 
 const routesHome = [
     {
@@ -21,11 +20,6 @@ const routesHome = [
 ]
 
 const routesAdmin = [
-    {
-        exact: true,
-        path: "/admin/login",
-        component: LoginPage
-    },
     {
         exact: true,
         path: "/admin",
