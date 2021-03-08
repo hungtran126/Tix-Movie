@@ -33,6 +33,7 @@ export const actDeleteMovieApi = (maPhim) => {
         }).catch(err => {
             dispatch(actManageMovieFailed(err));
             message.error(err.response.data === '' ? 'Đã có lỗi xảy ra' : err.response.data, 3);
+            console.log('asd');
         });
     }
 }

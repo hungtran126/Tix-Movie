@@ -11,7 +11,6 @@ import { makeStyles } from '@material-ui/core';
 import { Popconfirm } from 'antd';
 import CreateMovie from './CreateMovie';
 
-
 const useStyles = makeStyles((theme) => ({
     paper: {
         width: "800px",
@@ -23,16 +22,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function MoviePage(props) {
-    
+
     const classes = useStyles();
     const [title, setTitle] = React.useState("");
     const [open, setOpen] = React.useState(false);
-
+    
     useEffect(() => {
         props.getAllMovie();
         props.getInformationPagination(10, props.dataMovie ? props.dataMovie.length : 60);
     }, []);
-
 
     const handleOpen = (title, data) => {
         props.getEditMovie(data);
@@ -45,9 +43,8 @@ function MoviePage(props) {
     };
 
     const cancelDeleteMovie = (e) => {
-        // console.log("deleteMovie s", e);
+        console.log("deleteMovie s", e);
     }
-
 
     const renderTable = () => {
         if (props.dataMovie && props.dataMovie.length > 0) {
@@ -99,7 +96,7 @@ function MoviePage(props) {
                                 </td>
                                 <td className="text-center">
                                     <button
-                                        className="btn btn-md btn-neutral" 
+                                        className="btn btn-md btn-neutral"
                                         type="button"
                                         onClick={() => handleOpen("Chỉnh sửa thông tin", movie)}
                                     >

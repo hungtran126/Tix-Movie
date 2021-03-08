@@ -1,7 +1,6 @@
 import { TextField } from '@material-ui/core';
 import { Formik } from 'formik';
 import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -163,8 +162,8 @@ function CreateMovie(props) {
                                     helperText={touched.hinhAnh && errors.hinhAnh}
                                 />
                                 {values ? (
-                                    <img 
-                                        className="img-fluid mt-2" 
+                                    <img
+                                        className="img-fluid mt-2"
                                         src={!props.dataEdit ? values.hinhAnh : props.dataEdit.hinhAnh}
                                     />
                                 ) : ("")}

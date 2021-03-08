@@ -1,6 +1,7 @@
 import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import background from '../../img/bglogin.jpg';
+import TextField from '@material-ui/core/TextField';
 
 const useStyle = makeStyles(theme => ({
     signin_bgLogin: {
@@ -181,7 +182,12 @@ const useStyle = makeStyles(theme => ({
             color: '#fb4226',
         }
     },
-    
+    searchBar: {
+        '&>*': {
+            margin: theme.spacing(1),
+            width: '50ch',
+        },
+    },
 }));
 
 export default useStyle;

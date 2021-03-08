@@ -2,10 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux';
 
 function TitleAdmin(props) {
+
     return (
         <>
             {props.titlee ? props.titlee : "Người dùng"}
         </>
+
     )
 }
 

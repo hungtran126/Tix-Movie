@@ -1,12 +1,40 @@
+// import { Modal } from 'bootstrap';
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CreateUser from '../../containers/AdminTemplate/DashboardPage';
+import Modal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core';
 
 function NavbarAdmin(props) {
-    
+
     const user = () => {
         let userr = JSON.parse(localStorage.getItem("user"));
         return userr.hoTen;
+    }
+
+    const useStyles = makeStyles((theme) => ({
+        paper: {
+            width: "800px",
+            height: '420px',
+            overflow: 'auto',
+            backgroundColor: theme.palette.background.paper,
+            padding: theme.spacing(2, 4, 3),
+        },
+    }));
+
+    const classes = useStyles();
+    const [name, setName] = React.useState("");
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = (name, data) => {
+        props.getEditUser(data);
+        setName(name);
+        setOpen(true);
+    }
+
+    const handleClose = () => {
+        setOpen(false);
     }
 
     return (
@@ -14,20 +42,9 @@ function NavbarAdmin(props) {
             <nav className="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        {/* Search form */}
-                        <form className="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-                            <div className="form-group mb-0">
-                                <div className="input-group input-group-alternative input-group-merge">
-                                    <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="fas fa-search" /></span>
-                                    </div>
-                                    <input className="form-control" placeholder="Search" type="text" />
-                                </div>
-                            </div>
-                            <button type="button" className="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </form>
+                        <div className="text-white" style={{ fontSize: '20px', fontFamily: 'bold' }}>
+                            Date: {new Date().toLocaleDateString()}
+                        </div>
                         {/* Navbar links */}
                         <ul className="navbar-nav align-items-center  ml-md-auto ">
                             <li className="nav-item d-xl-none">
@@ -241,13 +258,25 @@ function NavbarAdmin(props) {
                     </div>
                 </div>
             </nav>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+                className="d-flex align-items-center"
+            >
+                <div className={classes.paper + " mx-auto"}>
+                    <h2 id="simple-modal-title" className="text-center">{name}</h2>
+                    <CreateUser />
+                </div>
+            </Modal>
         </>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        titlee: state.adminTitleReducer.title
+        titlee: state.adminTitleReducer.title,
     }
 }
 

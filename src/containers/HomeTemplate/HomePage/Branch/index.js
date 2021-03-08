@@ -10,6 +10,7 @@ function Branch(props) {
 
     useEffect(() => {
         props.fetchListBranch();
+        props.getBranchDetail("BHDStar");
     }, []);
 
     const renderBranch = () => {

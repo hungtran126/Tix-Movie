@@ -9,6 +9,7 @@ import adminTitleReducer from '../../components/NavbarAdmin/modules/reducers';
 import loginAdminReducer from '../../containers/AdminTemplate/LoginPage/modules/reducers';
 import manageMovieReducer from '../../containers/AdminTemplate/MoviePage/modules/reducers';
 import paginationReducer from '../../components/Pagination/modules/reducers';
+import manageUserReducer from '../../containers/AdminTemplate/DashboardPage/modules/reducers';
 const rootReducer = combineReducers({
     listMovieReducer,
     listVincomReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     loginAdminReducer,
     manageMovieReducer,
     paginationReducer,
+    manageUserReducer,
 });
 
 export default rootReducer;
