@@ -14,7 +14,7 @@ import { actLoginApi } from './modules/action';
 function Login(props) {
     const classes = useStyle();
     const responseFacebook = (res) => {
-        console.log("resss", res);
+        // console.log("resss", res);
     }
 
     const FormLogin = () => {

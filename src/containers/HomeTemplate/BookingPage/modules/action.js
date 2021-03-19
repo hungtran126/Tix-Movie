@@ -66,6 +66,7 @@ export const actBookMovieApi = (data) => {
             dispatch(actBookMovieSuccess(res));
         }).catch((err) => {
             message.error(err);
+            window.location.reload();
             dispatch(actBookMovieFailed(err));
         });
     }

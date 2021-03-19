@@ -5,7 +5,7 @@ export const actDetailMovieApi = (maPhim) => {
     return dispatch => {
         dispatch(actDetailMovieRequest());
         api.get(`/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`).then(res => {
-            console.log("detailMovie", res.data);
+            // console.log("detailMovie", res.data);
             dispatch(actDetailMovieSuccess(res.data));
         }).catch(err => {
             dispatch(actDetailMovieFailed(err));
