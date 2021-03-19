@@ -6,6 +6,6 @@ Hi mentor this is the project of me - Trần Gia Hưng and Bùi Huy Tuệ.
 
 // Start Server React <br> <br>
 <strong>
-  npm install
+  npm install <br> <br>
   npm start
 </strong>
