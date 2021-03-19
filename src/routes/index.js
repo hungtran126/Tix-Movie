@@ -16,7 +16,7 @@ const routesHome = [
         exact: false,
         path: `/phim/:maPhim`,
         component: DetailPage,
-    }
+    },
 ]
 
 const routesAdmin = [

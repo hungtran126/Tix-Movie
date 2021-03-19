@@ -47,7 +47,7 @@ function NewIn(props) {
                                             <h6>{movie.tenPhim} - (C18)</h6>
                                         </div>
                                         <p className="newIn__movieTime newIn__movieTimewithBuy">100 phút</p>
-                                        <Link to={"/phim/"+movie.tenPhim} className="newIn__item--btnBuy">
+                                        <Link to={"/phim/"+movie.maPhim} className="newIn__item--btnBuy">
                                             <button type="button" className="btn">MUA VÉ</button>
                                         </Link>
                                     </div>

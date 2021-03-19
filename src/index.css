@@ -1202,4 +1202,23 @@ footer .footer__bottom p:last-child {
 footer .footer__bottom a {
   color: #fb4226;
 }
+
+.addressOfDetail .nav-link.active {
+  background-color: transparent;
+  color: #fa5238;
+  transition: 0.25s;
+  font-weight: bold;
+}
+#checkOut .nav-item.active {
+  background-color: transparent;
+  color: #fa5238;
+  transition: 0.25s;
+  border-top: 2px #fa5238 solid;
+}
+#checkOut .nav-item {
+  font-size: 10pt;
+}
+#checkOut .nav-item strong{
+  margin-right: 5px;
+}
 /*# sourceMappingURL=main.css.map */

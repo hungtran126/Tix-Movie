@@ -1,11 +1,11 @@
 import api from '../../../../api';
 import * as ActionType from './constants';
 
-export const actDetailMovieApi = (tenPhim) => {
+export const actDetailMovieApi = (maPhim) => {
     return dispatch => {
-        dispatch(actDetailMovieRequest);
-        api.get(`/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=${tenPhim}`).then(res => {
-            // console.log("detailMovie", res.data);
+        dispatch(actDetailMovieRequest());
+        api.get(`/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`).then(res => {
+            console.log("detailMovie", res.data);
             dispatch(actDetailMovieSuccess(res.data));
         }).catch(err => {
             dispatch(actDetailMovieFailed(err));

@@ -7,10 +7,11 @@ const actScheduleDetailRequest = () => {
     };
 }
 
-const actScheduleDetailSuccess = (data) => {
+const actScheduleDetailSuccess = (data, maRap) => {
     return {
         type: Actiontype.SCHEDULE_DETAIL_SUCCESS,
         payload: data,
+        payload1: maRap
     };
 }
 
@@ -21,16 +22,8 @@ const actScheduleDetailFailed = (err) => {
     };
 }
 
-export const actScheduleDetailApi = (maRap) => {
+export const actScheduleDetailApi = (data) => {
     return dispatch => {
-        dispatch(actScheduleDetailRequest);
-        api.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=GP01`)
-            .then(res => {
-                // console.log("res", res.data);
-                dispatch(actScheduleDetailSuccess(res.data));
-            }).catch(err => {
-                dispatch(actScheduleDetailFailed(err));
-            });
-
+        dispatch(actScheduleDetailSuccess(data));
     }
 }

@@ -11,6 +11,7 @@ import HomeTemplate from './containers/HomeTemplate';
 import Login from './containers/LoginTemplate';
 import AdminTemplate from 'containers/AdminTemplate';
 import LoginPage from 'containers/AdminTemplate/LoginPage';
+import BookingPage from 'containers/HomeTemplate/BookingPage';
 
 const showLayoutHome = (routes) => {
   if (routes && routes.length > 0) {
@@ -38,6 +39,7 @@ class App extends Component {
       <Switch>
         {showLayoutHome(routesHome)}
         {showLayoutAdmin(routesAdmin)}
+        <Route path="/booking/:maRap" component={BookingPage} />
         <Route path="/admin/login" component={LoginPage} />
         <Route path="/login" component={Login} />
         <Route path="" component={PageNotFound} />

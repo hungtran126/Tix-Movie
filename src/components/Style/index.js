@@ -1,7 +1,6 @@
 import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import background from '../../img/bglogin.jpg';
-import TextField from '@material-ui/core/TextField';
 
 const useStyle = makeStyles(theme => ({
     signin_bgLogin: {
@@ -130,19 +129,18 @@ const useStyle = makeStyles(theme => ({
     styleDatePicker: {
         overflowX: 'scroll',
         width: '2000px',
-        float: 'left',
-        position: 'relative',
+        backgroundColor: 'white',
         height: '100px',
         display: 'flex',
         marginLeft: '0px'
     },
     styleDay: {
-        fontSize: '18px',
-        margin: '0 10px',
-        width: '80px',
+        fontSize: '10pt',
+        margin: '0 5px',
+        width: '60px',
     },
     styleDate: {
-        font: '18px',
+        font: '10pt',
         textAlign: 'center',
     },
     buttonDatePickerStyle: {
@@ -153,41 +151,97 @@ const useStyle = makeStyles(theme => ({
             border: 'none',
         }
     },
-    buttonDisabled: {
+    fontGrey: {
+        fontSize: '10pt',
         color: 'grey',
     },
     buttonTicket: {
-        width: '125px',
-        height: '50px',
+        width: '100px',
+        height: '35px',
         border: '2px solid lightGrey',
         borderRadius: '5px 5px',
+        justifyContent: 'center',
         '&:focus': {
             outline: 'none',
             boxShadow: 'none',
         },
+    },
+    hoverGreen: {
         '&:hover': {
-            color: 'grey',
+            color: 'red',
         }
     },
     tabs: {
-        fontSize: '25px',
+        fontSize: '14pt',
     },
     info: {
         color: 'white',
         '&:focus': {
-            backgroundColor: 'none',
+            backgroundColor: 'transparent',
             color: '#fb4226',
         },
         '&:hover': {
             color: '#fb4226',
         }
     },
-    searchBar: {
-        '&>*': {
-            margin: theme.spacing(1),
-            width: '50ch',
-        },
+    li_border_bottom: {
+        borderBottom: "1px #e7e7e7 solid",
+        width: "100%"
     },
+    stepCheckOut: {
+        position: "fixed",
+        backgroundColor: "#fff",
+        boxShadow: "0 0 15px rgba(0, 0, 0, .3)",
+        zIndex: "3",
+        top: "-1px",
+        left: "0",
+        width: "100%",
+        height: "70px",
+    },
+    leftCheckOut: {
+        left: '-22%',
+        minHeight: "100%",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        width: "26%",
+        position: "fixed",
+        zIndex: "1",
+    },
+    rightCheckOut: {
+        position: "fixed",
+        right: "0",
+        top: "0",
+        backgroundColor: "#fff",
+        boxShadow: "0 0 15px rgba(0,0,0,.3)",
+        zIndex: "3",
+        width: "440px",
+        height: "100%",
+    },
+    seatCheckOut: {
+        marginLeft: '4.3%',
+        marginTop: '80px',
+        paddingTop: '30px',
+        width: '69.7%',
+    },
+    timeCountDown: {
+        color: '#fb4226',
+        fontSize: '20pt',
+    },
+    colorRed: {
+        color: '#fb4226',
+    },
+    buyTicket: {
+        position: "absolute",
+        left: "0",
+        right: "0",
+        bottom: "0",
+        width: "100%",
+        height: "60px",
+        cursor: "pointer",
+        fontSize: "24px",
+        textAlign: "center",
+    }
 }));
 
 export default useStyle;

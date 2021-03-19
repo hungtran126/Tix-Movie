@@ -6,7 +6,6 @@ export const actLoginApi = (form, history) => {
     return dispatch => {
         dispatch(actLoginRequest());
         api.post(`/QuanLyNguoiDung/DangNhap`, form).then(res => {
-            console.log("Login", res.data);
             dispatch(actLoginSuccess(res.data));
             //setHeader Token
             setHeaders(res.data.accessToken);
@@ -16,7 +15,7 @@ export const actLoginApi = (form, history) => {
             history.push("/");
             //Thời gian hết phiên
             const date = new Date().getTime();
-            const exp = date + 3600000;
+            const exp = date + 360000;
             localStorage.setItem("exp", exp);
             const expTimeout = exp - date;
             dispatch(setTimeoutLogout(history, expTimeout))
@@ -57,6 +56,7 @@ export const actLogout = () => {
 const setTimeoutLogout = (history, expTimeout) => {
     return dispatch => {
         setTimeout(() => {
+            alert("Bạn đã hết phiên đăng nhập!");
             dispatch(actLogout(history));
         }, expTimeout);
     }

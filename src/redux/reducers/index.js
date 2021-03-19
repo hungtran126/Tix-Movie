@@ -10,6 +10,7 @@ import loginAdminReducer from '../../containers/AdminTemplate/LoginPage/modules/
 import manageMovieReducer from '../../containers/AdminTemplate/MoviePage/modules/reducers';
 import paginationReducer from '../../components/Pagination/modules/reducers';
 import manageUserReducer from '../../containers/AdminTemplate/DashboardPage/modules/reducers';
+import checkOutReducer from '../../containers/HomeTemplate/BookingPage/modules/reducers';
 const rootReducer = combineReducers({
     listMovieReducer,
     listVincomReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     manageMovieReducer,
     paginationReducer,
     manageUserReducer,
+    checkOutReducer,
 });
 
 export default rootReducer;
